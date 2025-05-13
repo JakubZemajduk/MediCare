@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\MediCare.csproj": {}
+    "C:\\Users\\kubaz\\Desktop\\MediCare\\App\\MediCare\\MediCare.csproj": {}
   },
   "projects": {
-    "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\MediCare.csproj": {
+    "C:\\Users\\kubaz\\Desktop\\MediCare\\App\\MediCare\\MediCare.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\MediCare.csproj",
+        "projectUniqueName": "C:\\Users\\kubaz\\Desktop\\MediCare\\App\\MediCare\\MediCare.csproj",
         "projectName": "MediCare",
-        "projectPath": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\MediCare.csproj",
-        "packagesPath": "C:\\Users\\zalew\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\obj\\",
+        "projectPath": "C:\\Users\\kubaz\\Desktop\\MediCare\\App\\MediCare\\MediCare.csproj",
+        "packagesPath": "C:\\Users\\kubaz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kubaz\\Desktop\\MediCare\\App\\MediCare\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Visual Studio\\Visual Studio 3\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\zalew\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kubaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -42,9 +42,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -84,7 +84,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
