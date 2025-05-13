@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|c:\\users\\zalew\\source\\repos\\medicare\\app\\medicare\\data\\dbcontext\\db_medicarecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|solutionrelative:data\\dbcontext\\db_medicarecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|c:\\users\\zalew\\source\\repos\\medicare\\app\\medicare\\appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|solutionrelative:appconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|c:\\users\\zalew\\source\\repos\\medicare\\app\\medicare\\migrations\\20250512195953_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|solutionrelative:migrations\\20250512195953_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|c:\\users\\zalew\\source\\repos\\medicare\\app\\medicare\\migrations\\db_medicarecontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|solutionrelative:migrations\\db_medicarecontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|c:\\users\\zalew\\source\\repos\\medicare\\app\\medicare\\data\\dbcontext\\db_medicarecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|solutionrelative:data\\dbcontext\\db_medicarecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|c:\\users\\zalew\\source\\repos\\medicare\\app\\medicare\\migrations\\20250512195953_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|solutionrelative:migrations\\20250512195953_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E573CEC-E200-4BEB-A8CE-FE070DFE1FFA}|MediCare.csproj|c:\\users\\zalew\\source\\repos\\medicare\\app\\medicare\\data\\models\\gender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,19 +78,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "DB_MediCareContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\Migrations\\DB_MediCareContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Migrations\\DB_MediCareContextModelSnapshot.cs",
               "ToolTip": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\Migrations\\DB_MediCareContextModelSnapshot.cs",
               "RelativeToolTip": "Migrations\\DB_MediCareContextModelSnapshot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T20:04:51.605Z"
+              "WhenOpened": "2025-05-12T20:04:51.605Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "20250512195953_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\Migrations\\20250512195953_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20250512195953_InitialCreate.cs",
@@ -103,26 +104,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AppConfig.cs",
               "DocumentMoniker": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\AppConfig.cs",
               "RelativeDocumentMoniker": "AppConfig.cs",
               "ToolTip": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\AppConfig.cs*",
               "RelativeToolTip": "AppConfig.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T19:51:12.399Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "DB_MediCareContext.cs",
               "DocumentMoniker": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\Data\\dbContext\\DB_MediCareContext.cs",
               "RelativeDocumentMoniker": "Data\\dbContext\\DB_MediCareContext.cs",
-              "ToolTip": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\Data\\dbContext\\DB_MediCareContext.cs*",
-              "RelativeToolTip": "Data\\dbContext\\DB_MediCareContext.cs*",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\zalew\\source\\repos\\MediCare\\App\\MediCare\\Data\\dbContext\\DB_MediCareContext.cs",
+              "RelativeToolTip": "Data\\dbContext\\DB_MediCareContext.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T18:47:09.972Z",
               "EditorCaption": ""
