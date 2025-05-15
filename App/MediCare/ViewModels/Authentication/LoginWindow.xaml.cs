@@ -23,5 +23,13 @@ namespace MediCare.Views.Authentication
         {
             InitializeComponent();
         }
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
