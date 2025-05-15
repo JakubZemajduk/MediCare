@@ -91,7 +91,7 @@
         <!-- Adres e-mail -->
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0,0,0,10">
             <TextBlock Text="Adres e-mail:" FontWeight="SemiBold" Foreground="#555555" />
-            <TextBox x:Name="UsernameTextBox" Height="35" />
+            <TextBox x:Name="EmailTextBox" Height="35" />
         </StackPanel>
 
         <!-- Hasło -->
@@ -105,13 +105,6 @@
             <TextBlock Text="Powtórz hasło:" FontWeight="SemiBold" Foreground="#555555" />
             <PasswordBox x:Name="RepeatPasswordBox" Height="35" />
         </StackPanel>
-
-        <!-- Wybór roli -->
-        <StackPanel Orientation="Vertical" Grid.Row="4" Margin="0,0,0,10">
-            <TextBlock Text="Zarejestruj jako:" FontWeight="SemiBold" Foreground="#555555" />
-            <ComboBox x:Name="RoleComboBox" Height="35" />
-        </StackPanel>
-
         <!-- Przyciski akcji -->
         <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center" Margin="0,20,0,0">
             <!-- Przycisk Anuluj -->
