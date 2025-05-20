@@ -110,7 +110,7 @@
             <!-- Przycisk Anuluj -->
             <Button Content="Anuluj" Background="#F44336" />
             <!-- Przycisk Zarejestruj -->
-            <Button Content="Zarejestruj" Background="#4CAF50" />
+            <Button Name="RegisterButton" Content="Zarejestruj" Background="#4CAF50" Click="RegisterButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>
