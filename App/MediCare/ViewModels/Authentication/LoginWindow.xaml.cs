@@ -36,16 +36,16 @@ namespace MediCare.Views.Authentication
                 Password = PasswordBox.Password
             };
 
-            var user = await loginService.LoginAsync(dto);
+            var (success, errorMessage, user) = await loginService.LoginAsync(dto);
 
-            if(user != null)
+            if(success)
             {
                 MessageBox.Show("Zalogowano pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Nieprawidłowy adres e-mail lub hasło.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(errorMessage, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

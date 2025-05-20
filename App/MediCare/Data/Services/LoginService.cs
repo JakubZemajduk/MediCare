@@ -19,20 +19,20 @@ namespace MediCare.Data.Services
             _context = context;
             _passwordHasher = passwordHasher;
         }
-        public async Task<User?> LoginAsync(LoginUserDto dto)
+        public async Task<(bool Success, string? ErrorMesage,User? User)> LoginAsync(LoginUserDto dto)
         {
             var user = await _context.Users
                 .FirstOrDefaultAsync(u => u.Email == dto.Email);
             if (user == null)
             {
-                return null;
+                return (false, "Nieprawidłowy adres e-mail.", null);
             }
             var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, dto.Password);
             if (result == PasswordVerificationResult.Success)
             {
-                return user;
+                return (true, null, user);
             }
-            return null;
+            return (false, "Nieprawidłowe hasło.", null);
         }
     }
 }
