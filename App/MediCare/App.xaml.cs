@@ -26,6 +26,7 @@ namespace MediCare
 
             services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
             services.AddScoped<RegisterService>();
+            services.AddScoped<LoginService>();
 
 
             ServiceProvider = services.BuildServiceProvider();
