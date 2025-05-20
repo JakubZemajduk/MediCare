@@ -12,7 +12,12 @@ namespace MediCare.Data
         {
         }
 
-
+        public DB_MediCareContext()
+        : base(new DbContextOptionsBuilder<DB_MediCareContext>()
+              .UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=DB_MediCare;Trusted_Connection=True;")
+              .Options)
+        {
+        }
         public DbSet<User> Users { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Patient> Patients { get; set; }
