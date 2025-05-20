@@ -18,7 +18,11 @@ namespace MediCare
             var services = new ServiceCollection();
 
             services.AddDbContext<DB_MediCareContext>(options =>
-                options.UseSqlServer(AppConfig.ConnectionString));
+               options.UseSqlServer(AppConfig.ConnectionString, sqlOptions =>
+               {
+                   sqlOptions.EnableRetryOnFailure();
+               }));
+
 
             services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
             services.AddScoped<RegisterService>();
