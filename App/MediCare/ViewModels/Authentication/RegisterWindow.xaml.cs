@@ -1,5 +1,10 @@
-﻿using System;
+﻿using MediCare.Data.Controllers;
+using MediCare.Data.DTOs;
+using MediCare.Data.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +26,56 @@ namespace MediCare.Views.Authentication
         {
             InitializeComponent();
         }
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private async void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            // Logika obsługi rejestracji
-            MessageBox.Show("Rejestracja zakończona sukcesem!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+            await RegisterButton_ClickAsync(sender, e);
+        }
+
+        private async Task RegisterButton_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            if (!new EmailAddressAttribute().IsValid(EmailTextBox.Text))
+            {
+                MessageBox.Show("Nieprawidłowy adres e-mail.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (PasswordBox.Password.Length < 8)
+            {
+                MessageBox.Show("Hasło musi mieć co najmniej 8 znaków.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(PasswordBox.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$"))
+            {
+                MessageBox.Show("Hasło musi zawierać co najmniej jedną małą literę, jedną dużą literę oraz jedną cyfrę.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (PasswordBox.Password != RepeatPasswordBox.Password)
+            {
+                MessageBox.Show("Hasła nie są takie same.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            var registerService = App.ServiceProvider.GetRequiredService<RegisterService>();
+            var registerController = new RegisterController(registerService);
+
+            var dto = new RegisterUserDto
+            {
+                Email = EmailTextBox.Text,
+                Password = PasswordBox.Password
+            };
+
+            var (success, message) = await registerController.RegisterAsync(dto);
+
+            if (success)
+            {
+                MessageBox.Show("Rejestracja zakończona sukcesem.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
     }

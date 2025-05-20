@@ -7,13 +7,17 @@ namespace MediCare.Data
 {
     public class DB_MediCareContext : DbContext
     {
-        public DB_MediCareContext() : base(
-       new DbContextOptionsBuilder<DB_MediCareContext>()
-           .UseSqlServer(AppConfig.ConnectionString)
-           .Options)
+        public DB_MediCareContext(DbContextOptions<DB_MediCareContext> options)
+    : base(options)
         {
         }
 
+        public DB_MediCareContext()
+        : base(new DbContextOptionsBuilder<DB_MediCareContext>()
+              .UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=DB_MediCare;Trusted_Connection=True;")
+              .Options)
+        {
+        }
         public DbSet<User> Users { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Patient> Patients { get; set; }
