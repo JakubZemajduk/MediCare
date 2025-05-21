@@ -1,4 +1,5 @@
-﻿using MediCare.Data.Controllers;
+﻿using MediCare.Data;
+using MediCare.Data.Controllers;
 using MediCare.Data.DTOs;
 using MediCare.Data.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +20,6 @@ using System.Windows.Shapes;
 
 namespace MediCare.Views.Authentication
 {
-    // Logika interakcji dla klasy RegisterWindow.xaml
     public partial class RegisterWindow : Window
     {
         public RegisterWindow()
@@ -71,6 +71,23 @@ namespace MediCare.Views.Authentication
             if (success)
             {
                 MessageBox.Show("Rejestracja zakończona sukcesem.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                var db = App.ServiceProvider.GetRequiredService<DB_MediCareContext>();
+                var user = db.Users.FirstOrDefault(u => u.Email == dto.Email);
+
+                if (user != null)
+                {
+                    var patientWindow = new PatientDataWindow(user.Id);
+                    var result = patientWindow.ShowDialog();
+                    if (result != true)
+                    {
+                        MessageBox.Show("Dane pacjenta nie zostały uzupełnione. Zostaniesz wylogowany.", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        Application.Current.Shutdown();
+                        return;
+                    }
+                }
+
+                this.Close();
             }
             else
             {
