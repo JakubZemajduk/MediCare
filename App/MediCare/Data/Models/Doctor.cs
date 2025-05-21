@@ -36,10 +36,9 @@ namespace MediCare.Data.Models
         public string DoctorNumber { get; set; }
 
         [Required(ErrorMessage = "Płeć jest wymagana.")]
-        public int GenderId { get; set; }
+        public GenderType Gender { get; set; }
 
-        public Gender gender { get; set; }
-
+      
         [Required]
         public int UserId { get; set; }
 
