@@ -8,11 +8,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MediCare.Data.Models
 {
-    public class Gender
+    public enum GenderType
     {
-        public int Id { get; set; }
-        [Required]
-        [MaxLength(10)]
-        public string Name { get; set; }
+        [Display(Name = "Mężczyzna")]
+        Male = 1,
+
+        [Display(Name = "Kobieta")]
+        Female = 2
     }
+
 }

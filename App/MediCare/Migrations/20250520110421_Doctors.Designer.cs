@@ -4,6 +4,7 @@ using MediCare.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MediCare.Migrations
 {
     [DbContext(typeof(DB_MediCareContext))]
-    partial class DB_MediCareContextModelSnapshot : ModelSnapshot
+    [Migration("20250520110421_Doctors")]
+    partial class Doctors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +105,7 @@ namespace MediCare.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("Gender")
+                    b.Property<int>("GenderId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -123,123 +126,31 @@ namespace MediCare.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("GenderId");
+
                     b.HasIndex("SpecializationId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Doctors");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DoctorNumber = "1000001",
-                            FirstName = "Jan",
-                            Gender = 1,
-                            LastName = "Kowalski",
-                            PhoneNumber = "123456789",
-                            SpecializationId = 1,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DoctorNumber = "1000002",
-                            FirstName = "Anna",
-                            Gender = 2,
-                            LastName = "Nowak",
-                            PhoneNumber = "987654321",
-                            SpecializationId = 2,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DoctorNumber = "1000003",
-                            FirstName = "Piotr",
-                            Gender = 1,
-                            LastName = "Zieliński",
-                            PhoneNumber = "111222333",
-                            SpecializationId = 3,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DoctorNumber = "1000004",
-                            FirstName = "Katarzyna",
-                            Gender = 2,
-                            LastName = "Wiśniewska",
-                            PhoneNumber = "444555666",
-                            SpecializationId = 4,
-                            UserId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DoctorNumber = "1000005",
-                            FirstName = "Tomasz",
-                            Gender = 1,
-                            LastName = "Mazur",
-                            PhoneNumber = "777888999",
-                            SpecializationId = 5,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            DoctorNumber = "1000006",
-                            FirstName = "Ewa",
-                            Gender = 2,
-                            LastName = "Jankowska",
-                            PhoneNumber = "222333444",
-                            SpecializationId = 1,
-                            UserId = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            DoctorNumber = "1000007",
-                            FirstName = "Andrzej",
-                            Gender = 1,
-                            LastName = "Lewandowski",
-                            PhoneNumber = "555666777",
-                            SpecializationId = 2,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 8,
-                            DoctorNumber = "1000008",
-                            FirstName = "Magdalena",
-                            Gender = 2,
-                            LastName = "Dąbrowska",
-                            PhoneNumber = "888999000",
-                            SpecializationId = 3,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 9,
-                            DoctorNumber = "1000009",
-                            FirstName = "Marek",
-                            Gender = 1,
-                            LastName = "Kaczmarek",
-                            PhoneNumber = "101202303",
-                            SpecializationId = 4,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 10,
-                            DoctorNumber = "1000010",
-                            FirstName = "Barbara",
-                            Gender = 2,
-                            LastName = "Szymańska",
-                            PhoneNumber = "404505606",
-                            SpecializationId = 5,
-                            UserId = 10
-                        });
+            modelBuilder.Entity("MediCare.Data.Models.Gender", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Genders");
                 });
 
             modelBuilder.Entity("MediCare.Data.Models.Patient", b =>
@@ -263,7 +174,7 @@ namespace MediCare.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("Gender")
+                    b.Property<int>("GenderId")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
@@ -290,6 +201,8 @@ namespace MediCare.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("GenderId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Patients");
@@ -311,33 +224,6 @@ namespace MediCare.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Specializations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Kardiologia"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Dermatologia"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Neurologia"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Pediatria"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Ortopedia"
-                        });
                 });
 
             modelBuilder.Entity("MediCare.Data.Models.User", b =>
@@ -363,78 +249,6 @@ namespace MediCare.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "jkowalski@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Email = "anowak@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "pzielinski@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Email = "kwiśniewska@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Email = "tmazur@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Email = "ejankowska@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Email = "alewandowski@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Email = "mdąbrowska@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Email = "mkaczmarek@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Email = "bszymańska@example.com",
-                            PasswordHash = "hashed",
-                            Role = 1
-                        });
                 });
 
             modelBuilder.Entity("MediCare.Data.Models.Appointment", b =>
@@ -469,6 +283,12 @@ namespace MediCare.Migrations
 
             modelBuilder.Entity("MediCare.Data.Models.Doctor", b =>
                 {
+                    b.HasOne("MediCare.Data.Models.Gender", "gender")
+                        .WithMany()
+                        .HasForeignKey("GenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MediCare.Data.Models.Specialization", "specialization")
                         .WithMany()
                         .HasForeignKey("SpecializationId")
@@ -481,6 +301,8 @@ namespace MediCare.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.Navigation("gender");
+
                     b.Navigation("specialization");
 
                     b.Navigation("user");
@@ -488,11 +310,19 @@ namespace MediCare.Migrations
 
             modelBuilder.Entity("MediCare.Data.Models.Patient", b =>
                 {
+                    b.HasOne("MediCare.Data.Models.Gender", "gender")
+                        .WithMany()
+                        .HasForeignKey("GenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MediCare.Data.Models.User", "user")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("gender");
 
                     b.Navigation("user");
                 });
