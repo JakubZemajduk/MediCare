@@ -11,7 +11,7 @@
     <Window.Resources>
         <ObjectDataProvider x:Key="GenderValues" MethodName="GetValues" ObjectType="{x:Type sys:Enum}">
             <ObjectDataProvider.MethodParameters>
-                <x:Type TypeName="models:Gender"/>
+                <x:Type TypeName="models:GenderType"/>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
         <Style TargetType="TextBox">

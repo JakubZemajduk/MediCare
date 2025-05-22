@@ -12,7 +12,7 @@ namespace MediCare.Views
         private readonly int _userId;
         private readonly DB_MediCareContext _db;
 
-        public Gender SelectedGender { get; set; } = Gender.Male;
+        public GenderType SelectedGender { get; set; } = GenderType.Male;
 
         public PatientDataWindow(int userId)
         {
@@ -21,7 +21,6 @@ namespace MediCare.Views
             _db = App.ServiceProvider.GetRequiredService<DB_MediCareContext>();
             DataContext = this;
         }
-
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             // Walidacja danych
@@ -47,6 +46,12 @@ namespace MediCare.Views
             if (!new PhoneAttribute().IsValid(PhoneNumberTextBox.Text))
             {
                 MessageBox.Show("Nieprawidłowy numer telefonu.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (DateOfBirthPicker.SelectedDate.Value > DateTime.Now)
+            {
+                MessageBox.Show("Data urodzenia nie może być z przyszłości.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
