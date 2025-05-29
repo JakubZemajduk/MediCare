@@ -20,7 +20,6 @@ namespace MediCare
             var loginWindow = new Views.Authentication.LoginWindow();
             loginWindow.ShowDialog();
         }
-
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
