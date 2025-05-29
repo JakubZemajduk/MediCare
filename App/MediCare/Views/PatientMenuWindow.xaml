@@ -1,0 +1,55 @@
+﻿<Window x:Class="MediCare.Views.PatientMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Panel pacjenta"
+        Height="400" Width="350"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#F5F5F5">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="MenuButtonStyle">
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="8"
+                                BorderBrush="#388E3C"
+                                BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="220">
+            <TextBlock Text="Witaj w panelu pacjenta!"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="#333"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,30"/>
+            <Button Content="Umów wizytę"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Click="ScheduleAppointment_Click"/>
+            <Button Content="Moje wizyty"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Click="MyAppointments_Click"/>
+            <Button Content="Edytuj dane"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Click="EditData_Click"/>
+            <Button Content="Wyloguj"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Background="#E53935"
+                    BorderBrush="#B71C1C"
+                    Click="Logout_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
