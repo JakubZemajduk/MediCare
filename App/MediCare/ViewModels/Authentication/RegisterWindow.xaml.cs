@@ -85,6 +85,14 @@ namespace MediCare.Views.Authentication
                         Application.Current.Shutdown();
                         return;
                     }
+
+                    var db2 = App.ServiceProvider.GetRequiredService<DB_MediCareContext>();
+                    var patient = db2.Patients.FirstOrDefault(p => p.UserId == user.Id);
+                    if (patient != null)
+                    {
+                        var menuWindow = new PatientMenuWindow(patient.Id);
+                        menuWindow.Show();
+                    }
                 }
 
                 this.Close();

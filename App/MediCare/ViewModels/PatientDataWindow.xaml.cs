@@ -11,6 +11,7 @@ namespace MediCare.Views
     {
         private readonly int _userId;
         private readonly DB_MediCareContext _db;
+        private Patient _patient;
 
         public GenderType SelectedGender { get; set; } = GenderType.Male;
 
@@ -19,6 +20,21 @@ namespace MediCare.Views
             InitializeComponent();
             _userId = userId;
             _db = App.ServiceProvider.GetRequiredService<DB_MediCareContext>();
+
+            _patient = _db.Patients.FirstOrDefault(p => p.UserId == _userId);
+            if (_patient != null)
+            {
+                FirstNameTextBox.Text = _patient.FirstName;
+                LastNameTextBox.Text = _patient.LastName;
+                PeselTextBox.Text = _patient.Pesel;
+                CityTextBox.Text = _patient.City;
+                StreetTextBox.Text = _patient.Street;
+                PhoneNumberTextBox.Text = _patient.PhoneNumber;
+                DateOfBirthPicker.SelectedDate = _patient.DateOfBirth;
+                SelectedGender = _patient.Gender;
+                GenderComboBox.SelectedItem = _patient.Gender;
+            }
+
             DataContext = this;
         }
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
