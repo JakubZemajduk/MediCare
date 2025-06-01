@@ -1,21 +1,9 @@
 ﻿using MediCare.Data;
 using MediCare.Data.DTOs;
+using MediCare.Data.Models;
 using MediCare.Data.Services;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MediCare.Views.Authentication
 {
@@ -40,32 +28,62 @@ namespace MediCare.Views.Authentication
 
             var (success, errorMessage, user) = await loginService.LoginAsync(dto);
 
-            if(success && user != null)
+            if (success && user != null)
             {
                 var db = App.ServiceProvider.GetRequiredService<DB_MediCareContext>();
-                var patient = db.Patients.FirstOrDefault(p => p.UserId == user.Id);
 
-                if(patient == null)
+                if (user.Role == UserRole.Patient)
                 {
-                    MessageBox.Show("Musisz uzupełnić dane pacjenta, aby korzystać z aplikacji.", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    var patientWindow = new PatientDataWindow(user.Id);
-                    var result = patientWindow.ShowDialog();
-
-                    if(result != true)
+                    var patient = db.Patients.FirstOrDefault(p => p.UserId == user.Id);
+                    if (patient == null)
                     {
-                        MessageBox.Show("Dane pacjenta nie zostały uzupełnione.Zostaniesz wylogowany.", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Warning);
-                        Application.Current.Shutdown();
+                        MessageBox.Show("Musisz uzupełnić dane pacjenta, aby korzystać z aplikacji.", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        var patientWindow = new PatientDataWindow(user.Id);
+                        var result = patientWindow.ShowDialog();
+
+                        if (result != true)
+                        {
+                            MessageBox.Show("Dane pacjenta nie zostały uzupełnione. Zostaniesz wylogowany.", "Uwaga", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            Application.Current.Shutdown();
+                            return;
+                        }
+
+                        patient = db.Patients.FirstOrDefault(p => p.UserId == user.Id);
+                        if (patient == null)
+                        {
+                            MessageBox.Show("Wystąpił błąd podczas pobierania danych pacjenta.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                            Application.Current.Shutdown();
+                            return;
+                        }
+                    }
+                    MessageBox.Show("Zalogowano pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var menuWindow = new PatientMenuWindow(patient.Id);
+                    menuWindow.Show();
+                    this.Close();
+                }
+                else if (user.Role == UserRole.Doctor)
+                {
+                    var doctor = db.Doctors.FirstOrDefault(d => d.UserId == user.Id);
+                    if (doctor == null)
+                    {
+                        MessageBox.Show("Nie znaleziono danych lekarza.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
+                    MessageBox.Show("Zalogowano pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var menuWindow = new DoctorMenuWindow(doctor.Id);
+                    menuWindow.Show();
+                    this.Close();
                 }
-
-                MessageBox.Show("Zalogowano pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
-                this.Close();
+                else
+                {
+                    MessageBox.Show("Nieznana rola użytkownika.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             else
             {
                 MessageBox.Show(errorMessage, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }
