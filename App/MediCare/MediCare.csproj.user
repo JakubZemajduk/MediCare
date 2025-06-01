@@ -22,6 +22,9 @@
     <Compile Update="ViewModels\PatientMenuWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ViewModels\DoctorMenuWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -34,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Authentication\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\DoctorMenuWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\PatientDataWindow.xaml">
