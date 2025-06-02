@@ -20,9 +20,9 @@ namespace MediCare.Views
 
         private void MyAppointments_Click(object sender, RoutedEventArgs e)
         {
-            // var myAppointmentsWindow = new MyAppointmentsWindow(_patientId);
-            //myAppointmentsWindow.ShowDialog();
-            MessageBox.Show("Funkcja 'Moje Wizyty' jest w trakcie implementacji.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+             var myAppointmentsWindow = new PatientAppointmentsWindow(_patientId);
+            myAppointmentsWindow.ShowDialog();
+            
 
         }
 

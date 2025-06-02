@@ -13,7 +13,7 @@ namespace MediCare
     {
         public static IServiceProvider ServiceProvider { get; private set; }
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             var services = new ServiceCollection();
 
@@ -32,6 +32,12 @@ namespace MediCare
             ServiceProvider = services.BuildServiceProvider();
 
             base.OnStartup(e);
+
+            using var context = new DB_MediCareContext();
+            var hasher = new PasswordHasher<User>();
+            var seeder = new TestUserSeeder(context, hasher);
+
+            await seeder.SeedAsync();
         }
     }
 }

@@ -39,9 +39,7 @@
             <Button Content="Zaplanowane wizyty"
                     Style="{StaticResource MenuButtonStyle}"
                     Click="MyAppointments_Click"/>
-            <Button Content="Wystaw raport"
-                    Style="{StaticResource MenuButtonStyle}"
-                    Click="CreateReport_Click"/>
+            
             <Button Content="Historia wizyt"
                     Style="{StaticResource MenuButtonStyle}"
                     Click="HistoryAppo_Click"/>

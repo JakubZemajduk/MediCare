@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MediCare.Views;
+using System.Windows;
 
 namespace MediCare.Views
 {
@@ -14,23 +15,18 @@ namespace MediCare.Views
 
         private void MyAppointments_Click(object sender, RoutedEventArgs e)
         {
-            // var myAppointmentsWindow = new DoctorAppointmentsWindow(_doctorId);
-            // myAppointmentsWindow.ShowDialog();
-            MessageBox.Show("Funkcja 'Zaplanowane wizyty' jest w trakcie implementacji.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            var upcomingappointmentswindow = new AppointmentsUpcomingWindow(_doctorId);
+            upcomingappointmentswindow.ShowDialog();
+           
         }
 
-        private void CreateReport_Click(object sender, RoutedEventArgs e)
-        {
-            // var reportWindow = new AppointmentReportWindow(_doctorId);
-            // reportWindow.ShowDialog();
-            MessageBox.Show("Funkcja 'Wystaw raport' jest w trakcie implementacji.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+        
 
         private void HistoryAppo_Click(object sender, RoutedEventArgs e)
         {
-            // var editWindow = new DoctorDataWindow(_doctorId);
-            // editWindow.ShowDialog();
-            MessageBox.Show("Funkcja 'Historia wizyt' jest w trakcie implementacji.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+            var myAppointmentsWindow = new AppointmentsHistoryWindow(_doctorId);
+            myAppointmentsWindow.ShowDialog();
+            
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
