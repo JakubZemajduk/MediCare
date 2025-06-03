@@ -1,0 +1,59 @@
+﻿<Window x:Class="MediCare.Views.AppointmentsUpcomingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zaplanowane wizyty" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <ScrollViewer>
+        <StackPanel Margin="20">
+            <TextBlock Text="Zaplanowane wizyty" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <!-- Nagłówki kolumn -->
+            <Grid Margin="0,0,0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Data" FontWeight="Bold" Grid.Column="0"/>
+                <TextBlock Text="Pacjent" FontWeight="Bold" Grid.Column="1"/>
+                <TextBlock Text="Status" FontWeight="Bold" Grid.Column="2"/>
+            </Grid>
+
+            <!-- Lista wizyt -->
+            <ItemsControl Name="UpcomingAppointmentsList">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="5" Padding="10" Margin="0,5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="200"/>
+                                    <ColumnDefinition Width="120"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding DateTime, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Grid.Column="0"/>
+                                <TextBlock Text="{Binding PatientName}" Grid.Column="1"/>
+                                <TextBlock Text="{Binding Status}" Grid.Column="2"/>
+
+                                <Button ToolTip="Wypełnij lub edytuj raport wizyty"
+                                        Grid.Column="3"
+                                        Tag="{Binding AppointmentId}"
+                                        Click="ReportButton_Click"
+                                        Margin="10,0,0,0" Padding="5,2"
+                                        Background="#D0E7FF" BorderBrush="#88BEEB"
+                                        Foreground="Black" FontWeight="SemiBold" Cursor="Hand">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="📄" FontSize="14" Margin="0,0,5,0"/>
+                                        <TextBlock Text="Raport"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
