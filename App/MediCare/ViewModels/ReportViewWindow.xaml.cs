@@ -79,6 +79,7 @@ namespace MediCare.Views
 
         private void SavePdfButton_Click(object sender, RoutedEventArgs e)
         {
+            /*
             var document = new PdfDocument();
             document.Info.Title = "Raport z wizyty";
 
@@ -94,6 +95,7 @@ namespace MediCare.Views
 
             MessageBox.Show("PDF zapisany na pulpicie:\n" + savePath, "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
             Process.Start("explorer.exe", $"/select,\"{savePath}\"");
+            */
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
