@@ -6,7 +6,6 @@
         ResizeMode="NoResize"
         Background="#F5F5F5">
     <Window.Resources>
-        <!-- Styl dla TextBox i PasswordBox -->
         <Style TargetType="TextBox">
             <Setter Property="Template">
                 <Setter.Value>
@@ -45,7 +44,6 @@
             <Setter Property="BorderThickness" Value="1" />
         </Style>
 
-        <!-- Styl dla Button -->
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -79,7 +77,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Tytuł formularza -->
         <TextBlock Text="Formularz rejestracji" 
                    FontSize="20" 
                    FontWeight="Bold" 
@@ -88,28 +85,22 @@
                    Margin="0,0,0,20" 
                    Grid.Row="0" />
 
-        <!-- Adres e-mail -->
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0,0,0,10">
             <TextBlock Text="Adres e-mail:" FontWeight="SemiBold" Foreground="#555555" />
             <TextBox x:Name="EmailTextBox" Height="35" />
         </StackPanel>
 
-        <!-- Hasło -->
         <StackPanel Orientation="Vertical" Grid.Row="2" Margin="0,0,0,10">
             <TextBlock Text="Hasło:" FontWeight="SemiBold" Foreground="#555555" />
             <PasswordBox x:Name="PasswordBox" Height="35" />
         </StackPanel>
 
-        <!-- Powtórz hasło -->
         <StackPanel Orientation="Vertical" Grid.Row="3" Margin="0,0,0,10">
             <TextBlock Text="Powtórz hasło:" FontWeight="SemiBold" Foreground="#555555" />
             <PasswordBox x:Name="RepeatPasswordBox" Height="35" />
         </StackPanel>
-        <!-- Przyciski akcji -->
         <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <!-- Przycisk Anuluj -->
-            <Button Content="Anuluj" Background="#F44336" />
-            <!-- Przycisk Zarejestruj -->
+            <Button Content="Anuluj" Background="#F44336" Click="CancelButton_Click" />
             <Button Name="RegisterButton" Content="Zarejestruj" Background="#4CAF50" Click="RegisterButton_Click"/>
         </StackPanel>
     </Grid>

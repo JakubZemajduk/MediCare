@@ -6,7 +6,6 @@
         ResizeMode="NoResize"
         Background="#F5F5F5">
     <Window.Resources>
-        <!-- Styl dla TextBox -->
         <Style TargetType="TextBox">
             <Setter Property="Template">
                 <Setter.Value>
@@ -26,7 +25,6 @@
             <Setter Property="BorderThickness" Value="1" />
         </Style>
 
-        <!-- Styl dla PasswordBox -->
         <Style TargetType="PasswordBox">
             <Setter Property="Template">
                 <Setter.Value>
@@ -46,7 +44,6 @@
             <Setter Property="BorderThickness" Value="1" />
         </Style>
 
-        <!-- Styl dla Button -->
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
@@ -77,7 +74,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Tytuł formularza -->
         <TextBlock Text="Logowanie" 
                    FontSize="20" 
                    FontWeight="Bold" 
@@ -86,23 +82,18 @@
                    Margin="0,0,0,20" 
                    Grid.Row="0" />
 
-        <!-- Adres e-mail -->
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0,0,0,10">
             <TextBlock Text="Adres e-mail:" FontWeight="SemiBold" Foreground="#555555" />
             <TextBox x:Name="EmailTextBox" Height="35" />
         </StackPanel>
 
-        <!-- Hasło -->
         <StackPanel Orientation="Vertical" Grid.Row="2" Margin="0,0,0,10">
             <TextBlock Text="Hasło:" FontWeight="SemiBold" Foreground="#555555" />
             <PasswordBox x:Name="PasswordBox" Height="35" />
         </StackPanel>
 
-        <!-- Przyciski akcji -->
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <!-- Przycisk Anuluj -->
             <Button Content="Anuluj" Background="#F44336" Click="CancelButton_Click" />
-            <!-- Przycisk Zaloguj -->
             <Button Content="Zaloguj" Background="#4CAF50" Click="LoginButton_Click" />
         </StackPanel>
     </Grid>
