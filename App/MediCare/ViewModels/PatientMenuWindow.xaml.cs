@@ -5,6 +5,7 @@ namespace MediCare.Views
     public partial class PatientMenuWindow : Window
     {
         private readonly int _patientId;
+        private string _currentLang = "PL";
 
         public PatientMenuWindow(int patientId)
         {
@@ -25,6 +26,10 @@ namespace MediCare.Views
             
 
         }
+        private void Doctors_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Funkcja 'Nasi lekarze' jest w trakcie implementacji.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
 
         private void EditData_Click(object sender, RoutedEventArgs e)
         {
@@ -37,6 +42,21 @@ namespace MediCare.Views
             var main = new MainWindow();
             main.Show();
             this.Close();
+        }
+        private void ChangeLanguage_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentLang == "PL")
+            {
+                _currentLang = "EN";
+                LangButton.Content = "EN";
+                MessageBox.Show("English version coming soon!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                _currentLang = "PL";
+                LangButton.Content = "PL";
+                MessageBox.Show("Wersja polska!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
