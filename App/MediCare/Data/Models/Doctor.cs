@@ -28,7 +28,7 @@ namespace MediCare.Data.Models
         [Required(ErrorMessage = "Specjalizacja jest wymagana.")]
         public int SpecializationId { get; set; }
 
-        public Specialization specialization { get; set; }
+        public Specialization Specialization { get; set; }
 
         [Required(ErrorMessage = "Numer PWZ jest wymagany.")]
         [StringLength(10, ErrorMessage = "Numer PWZ może mieć maksymalnie 10 znaków.")]
