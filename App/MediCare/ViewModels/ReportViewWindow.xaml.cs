@@ -77,26 +77,66 @@ namespace MediCare.Views
                    $"RECEPTA:\n{PrescriptionTextBox.Text}";
         }
 
+
         private void SavePdfButton_Click(object sender, RoutedEventArgs e)
         {
-            /*
             var document = new PdfDocument();
             document.Info.Title = "Raport z wizyty";
 
             PdfPage page = document.AddPage();
             XGraphics gfx = XGraphics.FromPdfPage(page);
-            XFont font = new XFont("Times New Roman", 12);
-            
-            string reportText = GetReportText();
-            gfx.DrawString(reportText, font, XBrushes.Black, new XRect(40, 40, page.Width - 80, page.Height - 80), XStringFormats.TopLeft);
 
-            var savePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Raport_{DateTime.Now:yyyyMMdd_HHmm}.pdf");
+          
+            var titleFont = new XFont("Arial", 16);
+            var textFont = new XFont("Arial", 12);
+
+            double margin = 40;
+            double y = margin;
+
+            gfx.DrawString("MediCare – Raport z wizyty", titleFont, XBrushes.Black,
+                new XRect(margin, y, page.Width - 2 * margin, 30), XStringFormats.TopLeft);
+            y += 40;
+
+            gfx.DrawString("LEKARZ:", textFont, XBrushes.Black, new XPoint(margin, y));
+            y += 20;
+            gfx.DrawString(DoctorNameTextBlock.Text, textFont, XBrushes.Black, new XPoint(margin, y));
+            y += 30;
+
+            gfx.DrawString("SPECJALIZACJA:", textFont, XBrushes.Black, new XPoint(margin, y));
+            y += 20;
+            gfx.DrawString(SpecializationTextBlock.Text, textFont, XBrushes.Black, new XPoint(margin, y));
+            y += 30;
+
+            gfx.DrawString("CHOROBA:", textFont, XBrushes.Black, new XPoint(margin, y));
+            y += 20;
+            gfx.DrawString(DiseaseTextBox.Text, textFont, XBrushes.Black,
+                new XRect(margin, y, page.Width - 2 * margin, 80), XStringFormats.TopLeft);
+            y += 80;
+
+            gfx.DrawString("OPIS WIZYTY:", textFont, XBrushes.Black, new XPoint(margin, y));
+            y += 20;
+            gfx.DrawString(DescriptionTextBox.Text, textFont, XBrushes.Black,
+                new XRect(margin, y, page.Width - 2 * margin, 100), XStringFormats.TopLeft);
+            y += 100;
+
+            gfx.DrawString("RECEPTA:", textFont, XBrushes.Black, new XPoint(margin, y));
+            y += 20;
+            gfx.DrawString(PrescriptionTextBox.Text, textFont, XBrushes.Black,
+                new XRect(margin, y, page.Width - 2 * margin, 80), XStringFormats.TopLeft);
+
+            var savePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                $"Raport_{DateTime.Now:yyyyMMdd_HHmm}.pdf");
+
             document.Save(savePath);
 
-            MessageBox.Show("PDF zapisany na pulpicie:\n" + savePath, "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("PDF zapisany na pulpicie:\n" + savePath,
+                "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+
             Process.Start("explorer.exe", $"/select,\"{savePath}\"");
-            */
         }
+
+
+
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

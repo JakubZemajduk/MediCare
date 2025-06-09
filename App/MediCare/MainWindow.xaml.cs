@@ -25,9 +25,9 @@ namespace MediCare
 
         private void Doctors_Click(object sender, RoutedEventArgs e)
         {
-            //var doctorsWindow = new Views.DoctorsWindow();
-            //doctorsWindow.ShowDialog();
-            MessageBox.Show("Trzeba zaimplementować", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            var doctorsWindow = new Views.DoctorsListWindow();
+            doctorsWindow.ShowDialog();
+           
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
