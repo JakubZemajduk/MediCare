@@ -43,7 +43,7 @@ namespace MediCare.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Doctor>()
-                .HasOne(d => d.specialization)
+                .HasOne(d => d.Specialization)
                 .WithMany()
                 .HasForeignKey(d => d.SpecializationId);
 

@@ -1,4 +1,5 @@
 ﻿using MediCare.Data;
+using MediCare.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,24 @@ namespace MediCare.Views
 
         private void LoadAppointments()
         {
+            var now = DateTime.Now;
             var reportIds = _context.AppointmentReports.Select(r => r.AppointmentId).ToHashSet();
 
-            _allAppointments = _context.Appointments
+            var appointments = _context.Appointments
                .Include(a => a.Doctor)
-                .Where(a => a.PatientId == _patientId)
-                .ToList()
+               .Where(a => a.PatientId == _patientId)
+               .ToList();
+
+            foreach (var appt in appointments)
+            {
+                if (appt.DateTime < now && appt.Status == AppointmentStatus.Planned)
+                {
+                    appt.Status = AppointmentStatus.Completed;
+                }
+            }
+            _context.SaveChanges();
+
+            _allAppointments = appointments
                 .Select(a => new AppointmentDisplay
                 {
                     AppointmentId = a.Id,
@@ -72,6 +85,38 @@ namespace MediCare.Views
             {
                 var reportWindow = new ReportViewWindow(appointmentId);
                 reportWindow.ShowDialog();
+            }
+        }
+
+        private void CancelAppointment_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button?.Tag is int appointmentId)
+            {
+                var appointment = _context.Appointments.FirstOrDefault(a => a.Id == appointmentId);
+
+                if (appointment == null)
+                {
+                    MessageBox.Show("Nie znaleziono wizyty.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (appointment.DateTime <= DateTime.Now)
+                {
+                    MessageBox.Show("Nie można anulować przeszłej wizyty.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
+                var result = MessageBox.Show("Czy na pewno chcesz anulować tę wizytę?", "Potwierdzenie",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    appointment.Status = AppointmentStatus.Cancelled;
+                    _context.SaveChanges();
+                    LoadAppointments();
+                    MessageBox.Show("Wizyta została anulowana.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
         }
 

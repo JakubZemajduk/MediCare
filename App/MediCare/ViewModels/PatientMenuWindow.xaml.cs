@@ -28,7 +28,8 @@ namespace MediCare.Views
         }
         private void Doctors_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Funkcja 'Nasi lekarze' jest w trakcie implementacji.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+         var doctorsListWindow = new DoctorsListWindow();
+            doctorsListWindow.ShowDialog();
         }
 
         private void EditData_Click(object sender, RoutedEventArgs e)
