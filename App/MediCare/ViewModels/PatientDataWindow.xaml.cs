@@ -12,14 +12,24 @@ namespace MediCare.Views
         private readonly int _userId;
         private readonly DB_MediCareContext _db;
         private Patient _patient;
+        private ResourceDictionary _plDict;
+        private ResourceDictionary _enDict;
+        private string _currentLang = "PL";
 
         public GenderType SelectedGender { get; set; } = GenderType.Male;
-
+        public int SelectedGenderIndex
+        {
+            get => (int)SelectedGender;
+            set => SelectedGender = (GenderType)value;
+        }
         public PatientDataWindow(int userId)
         {
             InitializeComponent();
             _userId = userId;
             _db = App.ServiceProvider.GetRequiredService<DB_MediCareContext>();
+            _plDict = new ResourceDictionary { Source = new Uri("Data/Resources/pl/PatientDataWindow.pl.xaml", UriKind.Relative) };
+            _enDict = new ResourceDictionary { Source = new Uri("Data/Resources/en/PatientDataWindow.en.xaml", UriKind.Relative) };
+            this.Resources.MergedDictionaries.Add(_plDict);
 
             _patient = _db.Patients.FirstOrDefault(p => p.UserId == _userId);
             if (_patient != null)
@@ -37,9 +47,25 @@ namespace MediCare.Views
 
             DataContext = this;
         }
+
+        private void LangButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Resources.MergedDictionaries.Clear();
+            if (_currentLang == "PL")
+            {
+                this.Resources.MergedDictionaries.Add(_enDict);
+                _currentLang = "EN";
+                LangButton.Content = "EN";
+            }
+            else
+            {
+                this.Resources.MergedDictionaries.Add(_plDict);
+                _currentLang = "PL";
+                LangButton.Content = "PL";
+            }
+        }
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            // Walidacja danych
             if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(LastNameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(PeselTextBox.Text) ||

@@ -27,13 +27,58 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Data\Resources\en\AppointmentsHistoryWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\AppointmentsUpcomingWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\AppointmentWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\DoctorMenuWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\DoctorsListWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Data\Resources\en\LoginWindow.en.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Data\Resources\en\MainWindow.en.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Data\Resources\en\PatientAppointmentWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\PatientDataWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\PatientMenuWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Data\Resources\en\RegisterWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\ReportViewWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\ReportWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\AppointmentsHistoryWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\AppointmentsUpcomingWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\AppointmentWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\DoctorMenuWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\DoctorsListWindow.pl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Data\Resources\pl\LoginWindow.pl.xaml">
@@ -42,7 +87,22 @@
     <Page Update="Data\Resources\pl\MainWindow.pl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Data\Resources\pl\PatientAppointmentWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\PatientDataWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\PatientMenuWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Data\Resources\pl\RegisterWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\ReportViewWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\ReportWindow.pl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

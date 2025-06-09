@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:models="clr-namespace:MediCare.Data.Models"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="Uzupełnij dane pacjenta"
+        Title="{DynamicResource Title}"
         Height="600" Width="400"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -63,53 +63,75 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="LangButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
     </Window.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="30">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="Uzupełnij dane pacjenta"
-                       FontSize="22"
-                       FontWeight="Bold"
-                       Foreground="#333"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,25"/>
-            <StackPanel Grid.Row="1">
-                <TextBlock Text="Imię:" FontWeight="SemiBold" Foreground="#555"/>
-                <TextBox x:Name="FirstNameTextBox"/>
+    <Grid>
+        <!-- Przycisk zmiany języka w prawym górnym rogu -->
+        <Button x:Name="LangButton"
+                Content="PL"
+                Style="{StaticResource LangButtonStyle}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Width="54"
+                Height="38"
+                Margin="0,10,10,0"
+                Click="LangButton_Click"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,40,0,0">
+            <Grid Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{DynamicResource Title}"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="#333"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,25"/>
+                <StackPanel Grid.Row="1">
+                    <TextBlock Text="{DynamicResource FirstName}" FontWeight="SemiBold" Foreground="#555"/>
+                    <TextBox x:Name="FirstNameTextBox"/>
 
-                <TextBlock Text="Nazwisko:" FontWeight="SemiBold" Foreground="#555"/>
-                <TextBox x:Name="LastNameTextBox"/>
+                    <TextBlock Text="{DynamicResource LastName}" FontWeight="SemiBold" Foreground="#555"/>
+                    <TextBox x:Name="LastNameTextBox"/>
 
-                <TextBlock Text="PESEL:" FontWeight="SemiBold" Foreground="#555"/>
-                <TextBox x:Name="PeselTextBox"/>
+                    <TextBlock Text="{DynamicResource Pesel}" FontWeight="SemiBold" Foreground="#555"/>
+                    <TextBox x:Name="PeselTextBox"/>
 
-                <TextBlock Text="Miasto:" FontWeight="SemiBold" Foreground="#555"/>
-                <TextBox x:Name="CityTextBox"/>
+                    <TextBlock Text="{DynamicResource City}" FontWeight="SemiBold" Foreground="#555"/>
+                    <TextBox x:Name="CityTextBox"/>
 
-                <TextBlock Text="Ulica:" FontWeight="SemiBold" Foreground="#555"/>
-                <TextBox x:Name="StreetTextBox"/>
+                    <TextBlock Text="{DynamicResource Street}" FontWeight="SemiBold" Foreground="#555"/>
+                    <TextBox x:Name="StreetTextBox"/>
 
-                <TextBlock Text="Numer telefonu:" FontWeight="SemiBold" Foreground="#555"/>
-                <TextBox x:Name="PhoneNumberTextBox"/>
+                    <TextBlock Text="{DynamicResource PhoneNumber}" FontWeight="SemiBold" Foreground="#555"/>
+                    <TextBox x:Name="PhoneNumberTextBox"/>
 
-                <TextBlock Text="Data urodzenia:" FontWeight="SemiBold" Foreground="#555"/>
-                <DatePicker x:Name="DateOfBirthPicker" Margin="0,0,0,10"/>
+                    <TextBlock Text="{DynamicResource DateOfBirth}" FontWeight="SemiBold" Foreground="#555"/>
+                    <DatePicker x:Name="DateOfBirthPicker" Margin="0,0,0,10"/>
 
-                <TextBlock Text="Płeć:" FontWeight="SemiBold" Foreground="#555"/>
-                <ComboBox x:Name="GenderComboBox"
-                          ItemsSource="{Binding Source={StaticResource GenderValues}}"
-                          SelectedValue="{Binding SelectedGender, Mode=TwoWay}"
-                          SelectedValuePath="."
-                          Margin="0,0,0,10"/>
-            </StackPanel>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Zapisz" Click="SaveButton_Click"/>
-            </StackPanel>
-        </Grid>
-    </ScrollViewer>
+                    <TextBlock Text="{DynamicResource Gender}" FontWeight="SemiBold" Foreground="#555"/>
+                    <ComboBox x:Name="GenderComboBox"
+          SelectedIndex="{Binding SelectedGenderIndex, Mode=TwoWay}"
+          Margin="0,0,0,10">
+                        <ComboBoxItem Content="{DynamicResource GenderMale}" />
+                        <ComboBoxItem Content="{DynamicResource GenderFemale}" />
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="{DynamicResource Save}" Click="SaveButton_Click"/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
 </Window>
-
