@@ -121,8 +121,8 @@
 
                     <TextBlock Text="{DynamicResource Gender}" FontWeight="SemiBold" Foreground="#555"/>
                     <ComboBox x:Name="GenderComboBox"
-          SelectedIndex="{Binding SelectedGenderIndex, Mode=TwoWay}"
-          Margin="0,0,0,10">
+                    SelectedIndex="{Binding SelectedGenderIndex, Mode=TwoWay}"
+                    Margin="0,0,0,10">
                         <ComboBoxItem Content="{DynamicResource GenderMale}" />
                         <ComboBoxItem Content="{DynamicResource GenderFemale}" />
                     </ComboBox>
