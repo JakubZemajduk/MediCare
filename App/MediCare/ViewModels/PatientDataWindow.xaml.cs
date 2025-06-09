@@ -22,6 +22,7 @@ namespace MediCare.Views
             get => (int)SelectedGender;
             set => SelectedGender = (GenderType)value;
         }
+
         public PatientDataWindow(int userId)
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace MediCare.Views
                 PhoneNumberTextBox.Text = _patient.PhoneNumber;
                 DateOfBirthPicker.SelectedDate = _patient.DateOfBirth;
                 SelectedGender = _patient.Gender;
-                GenderComboBox.SelectedItem = _patient.Gender;
+                GenderComboBox.SelectedIndex = (int)_patient.Gender;
             }
 
             DataContext = this;
@@ -64,6 +65,7 @@ namespace MediCare.Views
                 LangButton.Content = "PL";
             }
         }
+
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text) ||
@@ -97,23 +99,25 @@ namespace MediCare.Views
                 return;
             }
 
-            var patient = new Patient
-            {
-                FirstName = FirstNameTextBox.Text,
-                LastName = LastNameTextBox.Text,
-                Pesel = PeselTextBox.Text,
-                City = CityTextBox.Text,
-                Street = StreetTextBox.Text,
-                PhoneNumber = PhoneNumberTextBox.Text,
-                DateOfBirth = DateOfBirthPicker.SelectedDate.Value,
-                Gender = SelectedGender,
-                UserId = _userId
-            };
-
             try
             {
-                _db.Patients.Add(patient);
+                if (_patient == null)
+                {
+                    _patient = new Patient { UserId = _userId };
+                    _db.Patients.Add(_patient);
+                }
+
+                _patient.FirstName = FirstNameTextBox.Text;
+                _patient.LastName = LastNameTextBox.Text;
+                _patient.Pesel = PeselTextBox.Text;
+                _patient.City = CityTextBox.Text;
+                _patient.Street = StreetTextBox.Text;
+                _patient.PhoneNumber = PhoneNumberTextBox.Text;
+                _patient.DateOfBirth = DateOfBirthPicker.SelectedDate.Value;
+                _patient.Gender = SelectedGender;
+
                 await _db.SaveChangesAsync();
+
                 MessageBox.Show("Dane pacjenta zostały zapisane.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
                 this.DialogResult = true;
                 this.Close();
