@@ -31,6 +31,12 @@ namespace MediCare.Views
             myAppointmentsWindow.ShowDialog();
             
         }
+        private void Statistics_Click(object sender, RoutedEventArgs e)
+        {
+            var statWindow = new DoctorStatisticsWindow(_doctorId);
+            statWindow.ShowDialog();
+        }
+
 
         private void ReportAbsence_Click(object sender, RoutedEventArgs e)
         {

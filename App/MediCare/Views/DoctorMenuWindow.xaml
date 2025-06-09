@@ -100,6 +100,10 @@
                     Content="{DynamicResource AppointmentsHistory}"
                     Style="{StaticResource MenuButtonStyle}"
                     Click="HistoryAppo_Click"/>
+            <Button x:Name="StatisticsBtn"
+                    Content="Statystyki"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Click="Statistics_Click"/>
             <Button x:Name="AbsenceBtn"
                     Content="{DynamicResource ReportAbsence}"
                     Style="{StaticResource MenuButtonStyle}"
@@ -122,6 +126,9 @@
                         <DoubleAnimation Storyboard.TargetName="HistoryBtn"
                                          Storyboard.TargetProperty="Opacity"
                                          From="0" To="1" Duration="0:0:0.5" BeginTime="0:0:0.4"/>
+                        <DoubleAnimation Storyboard.TargetName="StatisticsBtn"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="0" To="1" Duration="0:0:0.5" BeginTime="0:0:0.6"/>
                         <DoubleAnimation Storyboard.TargetName="AbsenceBtn"
                                          Storyboard.TargetProperty="Opacity"
                                          From="0" To="1" Duration="0:0:0.5" BeginTime="0:0:0.8"/>
