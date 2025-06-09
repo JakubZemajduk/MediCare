@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Title">Historia wizyt</sys:String>
+    <sys:String x:Key="Date">Data</sys:String>
+    <sys:String x:Key="Patient">Pacjent</sys:String>
+    <sys:String x:Key="Status">Status</sys:String>
+    <sys:String x:Key="Report">Raport</sys:String>
+    <sys:String x:Key="ReportTooltip">Wypełnij lub edytuj raport wizyty</sys:String>
+</ResourceDictionary>

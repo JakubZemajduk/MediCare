@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Title">Doctor panel</sys:String>
+    <sys:String x:Key="PlannedAppointments">Planned appointments</sys:String>
+    <sys:String x:Key="AppointmentsHistory">Appointments history</sys:String>
+    <sys:String x:Key="ReportAbsence">Report absence</sys:String>
+    <sys:String x:Key="Logout">Logout</sys:String>
+</ResourceDictionary>

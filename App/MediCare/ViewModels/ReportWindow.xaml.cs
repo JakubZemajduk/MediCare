@@ -11,14 +11,35 @@ namespace MediCare.Views
         private readonly DB_MediCareContext _context = new();
         private readonly int _appointmentId;
         private AppointmentReport _existingReport;
+        private ResourceDictionary _plDict;
+        private ResourceDictionary _enDict;
+        private string _currentLang = "PL";
 
         public ReportWindow(int appointmentId)
         {
             InitializeComponent();
             _appointmentId = appointmentId;
+            _plDict = new ResourceDictionary { Source = new Uri("Data/Resources/pl/ReportWindow.pl.xaml", UriKind.Relative) };
+            _enDict = new ResourceDictionary { Source = new Uri("Data/Resources/en/ReportWindow.en.xaml", UriKind.Relative) };
+            this.Resources.MergedDictionaries.Add(_plDict);
             LoadReport();
         }
-
+        private void LangButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Resources.MergedDictionaries.Clear();
+            if (_currentLang == "PL")
+            {
+                this.Resources.MergedDictionaries.Add(_enDict);
+                _currentLang = "EN";
+                LangButton.Content = "EN";
+            }
+            else
+            {
+                this.Resources.MergedDictionaries.Add(_plDict);
+                _currentLang = "PL";
+                LangButton.Content = "PL";
+            }
+        }
         private void LoadReport()
         {
             _existingReport = _context.AppointmentReports

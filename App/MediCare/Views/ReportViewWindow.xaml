@@ -1,41 +1,63 @@
 ﻿<Window x:Class="MediCare.Views.ReportViewWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Raport z wizyty" Height="600" Width="700"
-        WindowStartupLocation="CenterScreen">
+        Title="{DynamicResource Title}" Height="600" Width="700"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5">
+    <Window.Resources>
+        <Style x:Key="LangButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Window.Resources>
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <Button x:Name="LangButton"
+            Content="PL"
+            Style="{StaticResource LangButtonStyle}"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Width="54"
+            Height="38"
+            Margin="0,0,0,0"
+            Click="LangButton_Click"/>
+
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
             <StackPanel Margin="0,0,0,20">
-                <TextBlock Text="Raport z wizyty" FontSize="22" FontWeight="Bold" Margin="0,0,0,10"/>
+                <TextBlock Text="{DynamicResource Title}" FontSize="22" FontWeight="Bold" Margin="0,0,0,10"/>
 
-                <TextBlock Text="Lekarz prowadzący:" FontWeight="SemiBold"/>
+                <TextBlock Text="{DynamicResource Doctor}" FontWeight="SemiBold"/>
                 <TextBlock x:Name="DoctorNameTextBlock" FontSize="14"/>
 
-                <TextBlock Text="Specjalizacja:" FontWeight="SemiBold" Margin="0,5,0,10"/>
+                <TextBlock Text="{DynamicResource Specialization}" FontWeight="SemiBold" Margin="0,5,0,10"/>
                 <TextBlock x:Name="SpecializationTextBlock" FontSize="14"/>
 
-                <TextBlock Text="Nazwa choroby:" FontWeight="SemiBold"/>
+                <TextBlock Text="{DynamicResource Disease}" FontWeight="SemiBold"/>
                 <TextBox x:Name="DiseaseTextBox" Margin="0,5" IsReadOnly="True"/>
 
-                <TextBlock Text="Opis wizyty:" Margin="0,10,0,0" FontWeight="SemiBold"/>
+                <TextBlock Text="{DynamicResource Description}" Margin="0,10,0,0" FontWeight="SemiBold"/>
                 <TextBox x:Name="DescriptionTextBox" Margin="0,5" Height="100"
                          AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
 
-                <TextBlock Text="Recepta:" Margin="0,10,0,0" FontWeight="SemiBold"/>
+                <TextBlock Text="{DynamicResource Prescription}" Margin="0,10,0,0" FontWeight="SemiBold"/>
                 <TextBox x:Name="PrescriptionTextBox" Margin="0,5" Height="60"
                          AcceptsReturn="True" TextWrapping="Wrap" IsReadOnly="True"/>
             </StackPanel>
         </ScrollViewer>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-            <Button Content="Drukuj" Width="100" Margin="0,0,10,0" Click="PrintButton_Click"/>
-            <Button Content="Zapisz PDF" Width="100" Margin="0,0,10,0" Click="SavePdfButton_Click"/>
-            <Button Content="Zamknij" Width="100" Click="CloseButton_Click"/>
+            <Button Content="{DynamicResource Print}" Width="100" Margin="0,0,10,0" Click="PrintButton_Click"/>
+            <Button Content="{DynamicResource SavePdf}" Width="100" Margin="0,0,10,0" Click="SavePdfButton_Click"/>
+            <Button Content="{DynamicResource Close}" Width="100" Click="CloseButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>

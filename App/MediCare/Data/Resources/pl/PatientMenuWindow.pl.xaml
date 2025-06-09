@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Title">Panel pacjenta</sys:String>
+    <sys:String x:Key="Schedule">Umów wizytę</sys:String>
+    <sys:String x:Key="MyAppointments">Moje wizyty</sys:String>
+    <sys:String x:Key="Doctors">Nasi lekarze</sys:String>
+    <sys:String x:Key="EditData">Edytuj dane</sys:String>
+    <sys:String x:Key="Logout">Wyloguj</sys:String>
+</ResourceDictionary>

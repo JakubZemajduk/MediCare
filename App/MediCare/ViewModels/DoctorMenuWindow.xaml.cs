@@ -6,12 +6,17 @@ namespace MediCare.Views
     public partial class DoctorMenuWindow : Window
     {
         private readonly int _doctorId;
+        private ResourceDictionary _plDict;
+        private ResourceDictionary _enDict;
         private string _currentLang = "PL";
 
         public DoctorMenuWindow(int doctorId)
         {
             InitializeComponent();
             _doctorId = doctorId;
+            _plDict = new ResourceDictionary { Source = new Uri("Data/Resources/pl/DoctorMenuWindow.pl.xaml", UriKind.Relative) };
+            _enDict = new ResourceDictionary { Source = new Uri("Data/Resources/en/DoctorMenuWindow.en.xaml", UriKind.Relative) };
+            this.Resources.MergedDictionaries.Add(_plDict);
         }
 
         private void MyAppointments_Click(object sender, RoutedEventArgs e)
@@ -33,17 +38,18 @@ namespace MediCare.Views
         }
         private void ChangeLanguage_Click(object sender, RoutedEventArgs e)
         {
+            this.Resources.MergedDictionaries.Clear();
             if (_currentLang == "PL")
             {
+                this.Resources.MergedDictionaries.Add(_enDict);
                 _currentLang = "EN";
                 LangButton.Content = "EN";
-                MessageBox.Show("English version coming soon!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
+                this.Resources.MergedDictionaries.Add(_plDict);
                 _currentLang = "PL";
                 LangButton.Content = "PL";
-                MessageBox.Show("Wersja polska!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

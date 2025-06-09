@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Title">Fill in patient data</sys:String>
+    <sys:String x:Key="FirstName">First name:</sys:String>
+    <sys:String x:Key="LastName">Last name:</sys:String>
+    <sys:String x:Key="Pesel">PESEL:</sys:String>
+    <sys:String x:Key="City">City:</sys:String>
+    <sys:String x:Key="Street">Street:</sys:String>
+    <sys:String x:Key="PhoneNumber">Phone number:</sys:String>
+    <sys:String x:Key="DateOfBirth">Date of birth:</sys:String>
+    <sys:String x:Key="Gender">Gender:</sys:String>
+    <sys:String x:Key="GenderMale">Male</sys:String>
+    <sys:String x:Key="GenderFemale">Female</sys:String>
+    <sys:String x:Key="Save">Save</sys:String>
+</ResourceDictionary>

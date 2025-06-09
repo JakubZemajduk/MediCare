@@ -22,9 +22,15 @@ namespace MediCare.Views.Authentication
 {
     public partial class RegisterWindow : Window
     {
+        private ResourceDictionary _plDict;
+        private ResourceDictionary _enDict;
+        private string _currentLang = "PL";
         public RegisterWindow()
         {
             InitializeComponent();
+            _plDict = new ResourceDictionary { Source = new Uri("Data/Resources/pl/RegisterWindow.pl.xaml", UriKind.Relative) };
+            _enDict = new ResourceDictionary { Source = new Uri("Data/Resources/en/RegisterWindow.en.xaml", UriKind.Relative) };
+            this.Resources.MergedDictionaries.Add(_plDict);
         }
         private async void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
@@ -102,7 +108,22 @@ namespace MediCare.Views.Authentication
                 MessageBox.Show(message, "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
+        private void LangButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Resources.MergedDictionaries.Clear();
+            if (_currentLang == "PL")
+            {
+                this.Resources.MergedDictionaries.Add(_enDict);
+                _currentLang = "EN";
+                LangButton.Content = "EN";
+            }
+            else
+            {
+                this.Resources.MergedDictionaries.Add(_plDict);
+                _currentLang = "PL";
+                LangButton.Content = "PL";
+            }
+        }
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

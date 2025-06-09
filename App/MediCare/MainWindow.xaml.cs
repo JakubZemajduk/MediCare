@@ -4,11 +4,16 @@ namespace MediCare
 {
     public partial class MainWindow : Window
     {
+        private ResourceDictionary _plDict;
+        private ResourceDictionary _enDict;
         private string _currentLang = "PL";
 
         public MainWindow()
         {
             InitializeComponent();
+            _plDict = new ResourceDictionary { Source = new Uri("Data/Resources/pl/MainWindow.pl.xaml", UriKind.Relative) };
+            _enDict = new ResourceDictionary { Source = new Uri("Data/Resources/en/MainWindow.en.xaml", UriKind.Relative) };
+            this.Resources.MergedDictionaries.Add(_plDict);
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -37,19 +42,18 @@ namespace MediCare
 
         private void ChangeLanguage_Click(object sender, RoutedEventArgs e)
         {
-            // Przełączanie języka (na razie tylko zmiana napisu)
+            this.Resources.MergedDictionaries.Clear();
             if (_currentLang == "PL")
             {
+                this.Resources.MergedDictionaries.Add(_enDict);
                 _currentLang = "EN";
                 LangButton.Content = "EN";
-                MessageBox.Show("English version coming soon!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-                // Tu w przyszłości: przełączanie ResourceDictionary lub CultureInfo
             }
             else
             {
+                this.Resources.MergedDictionaries.Add(_plDict);
                 _currentLang = "PL";
                 LangButton.Content = "PL";
-                MessageBox.Show("Wersja polska!", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="Title">Raport z wizyty</sys:String>
+    <sys:String x:Key="Disease">Nazwa choroby:</sys:String>
+    <sys:String x:Key="Description">Opis wizyty:</sys:String>
+    <sys:String x:Key="Prescription">Recepta (opcjonalnie):</sys:String>
+    <sys:String x:Key="Save">Zapisz</sys:String>
+    <sys:String x:Key="Close">Zamknij</sys:String>
+</ResourceDictionary>
