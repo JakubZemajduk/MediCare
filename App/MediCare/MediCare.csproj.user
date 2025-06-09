@@ -27,6 +27,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Data\Resources\en\LoginWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\MainWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\en\RegisterWindow.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\LoginWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\MainWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Data\Resources\pl\RegisterWindow.pl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
