@@ -104,10 +104,7 @@
                     Content="Statystyki"
                     Style="{StaticResource MenuButtonStyle}"
                     Click="Statistics_Click"/>
-            <Button x:Name="AbsenceBtn"
-                    Content="{DynamicResource ReportAbsence}"
-                    Style="{StaticResource MenuButtonStyle}"
-                    Click="ReportAbsence_Click"/>
+           
             <Button x:Name="ExitBtn"
                     Content="{DynamicResource Logout}"
                     Style="{StaticResource ExitButtonStyle}"
@@ -129,9 +126,7 @@
                         <DoubleAnimation Storyboard.TargetName="StatisticsBtn"
                                          Storyboard.TargetProperty="Opacity"
                                          From="0" To="1" Duration="0:0:0.5" BeginTime="0:0:0.6"/>
-                        <DoubleAnimation Storyboard.TargetName="AbsenceBtn"
-                                         Storyboard.TargetProperty="Opacity"
-                                         From="0" To="1" Duration="0:0:0.5" BeginTime="0:0:0.8"/>
+                       
                         <DoubleAnimation Storyboard.TargetName="ExitBtn"
                                          Storyboard.TargetProperty="Opacity"
                                          From="0" To="1" Duration="0:0:0.5" BeginTime="0:0:1.0"/>

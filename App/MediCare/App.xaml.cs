@@ -35,9 +35,9 @@ namespace MediCare
 
             using var context = new DB_MediCareContext();
             var hasher = new PasswordHasher<User>();
-            var seeder = new TestUserSeeder(context, hasher);
+         
 
-            await seeder.SeedAsync();
+           
         }
     }
 }

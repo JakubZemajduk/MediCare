@@ -38,10 +38,7 @@ namespace MediCare.Views
         }
 
 
-        private void ReportAbsence_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Funkcja 'Zgłoś nieobecność' jest w trakcie implementacji.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
+       
         private void ChangeLanguage_Click(object sender, RoutedEventArgs e)
         {
             this.Resources.MergedDictionaries.Clear();
